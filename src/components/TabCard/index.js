@@ -16,7 +16,6 @@ const Center = styled.div`
 export default function TabCard(props) {
   const { state } = useJobContext();
   const [BestMatches, setBestMatches] = useState([]);
-  const [SavedJobs, setSavedJobs] = useState(state.jobs);
 
   useEffect(() => {
     (async () => {
@@ -81,6 +80,7 @@ export default function TabCard(props) {
             amountSpent={detail.amountSpent}
             location={detail.location}
             technologies={detail.technologies}
+            detail={detail}
           />
         ))}
       </div>
@@ -90,8 +90,8 @@ export default function TabCard(props) {
   if (props.savedJobs) {
     return (
       <div>
-        {SavedJobs.length > 0 ? (
-          SavedJobs?.map((detail) => (
+        {state.jobs.length > 0 ? (
+          state.jobs?.map((detail) => (
             <JobCard
               key={detail.id}
               id={detail.id}
@@ -107,6 +107,7 @@ export default function TabCard(props) {
               amountSpent={detail.amountSpent}
               location={detail.location}
               technologies={detail.technologies}
+              detail={detail}
             />
           ))
         ) : (

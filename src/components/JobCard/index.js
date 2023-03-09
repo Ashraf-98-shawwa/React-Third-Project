@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import SkillsCard from "../SkillsCard";
 import { useJobContext } from "../../context/jobContext";
@@ -46,7 +46,6 @@ const Button = styled.button`
 
 export default function JobCard(props) {
   const { state, addToSaved, removeFromSaved } = useJobContext();
-
 
 
   useEffect(() => {
