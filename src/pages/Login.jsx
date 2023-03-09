@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "../components/Container";
-import Footer from "../components/Footer";
+import FormFooter from "../components/FormFooter";
 import Header from "../components/Header";
 import LoginForm from "../components/LoginForm";
 
@@ -9,8 +9,8 @@ export default function Login() {
     <div>
       <Container>
         <Header login />
-        <LoginForm/>
-        <Footer />
+        <LoginForm />
+        <FormFooter />
       </Container>
     </div>
   );

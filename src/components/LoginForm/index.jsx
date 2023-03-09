@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useAuthContext } from "../../context/AuthContext";
 import FormBox from "../FormBox";
 import Input from "../Input";
 import SubmitButton from "../SubmitButton";
 import SwitchButton from "../SwitchButton";
+import * as yup from "yup";
+import axios from "axios";
 
 const FormH1 = styled.h1`
   font-size: 26px;
@@ -38,12 +41,101 @@ const OR = styled.p`
   }
 `;
 
+export const ErrorsList = styled.ul`
+  list-style: circle;
+  padding: 10px;
+`;
+
+export const ErrorMessage = styled.li`
+  margin-top: 5px;
+  color: red;
+  text-align: left;
+`;
+
 export default function LoginForm() {
+  const {
+    setIsLoading,
+    setisAuthorized,
+    setErrors,
+    Errors,
+    setToken,
+    setusername,
+  } = useAuthContext();
+
+  const [email, SeteEmail] = useState("");
+  const [Password, Setpassword] = useState("");
+
+  useEffect(() => {
+    return () => setErrors([]);
+  }, [setErrors]); 
+
+  const schema = yup.object().shape({
+    email: yup.string().email().required(),
+    Password: yup.string().min(8).required(),
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    schema
+      .validate(
+        {
+          Password,
+          email,
+        },
+        { abortEarly: false }
+      )
+      .then(async () => {
+        const res = await axios.post(
+          `https://react-tt-api.onrender.com/api/users/login`,
+          {
+            email: email,
+            password: Password,
+          }
+        );
+        if (res) {
+          setToken(res.data.token);
+          localStorage.setItem("token", res.data.token);
+          setusername(res.data.name);
+          localStorage.setItem("name", res.data.name);
+          setErrors([]);
+          setIsLoading(false);
+          setisAuthorized(true);
+        }
+      })
+      .catch((e) => {
+        setErrors(e.errors || [e.message]);
+        setIsLoading(false);
+      });
+  };
+
+  const handleChangeInput = (e) => {
+    const { id, value } = e.target;
+    id === "email" ? SeteEmail(value) : Setpassword(value);
+  };
+
   return (
-    <FormBox>
+    <FormBox SubmitFunction={handleSubmit}>
       <FormH1>Log in to Upwork</FormH1>
-      <Input type="email" />
-      <Input type="password" />
+
+      <ErrorsList>
+        {Errors.map((error, index) => {
+          return <ErrorMessage key={index}>{error}</ErrorMessage>;
+        })}
+      </ErrorsList>
+
+      <Input
+        id="email"
+        type="email"
+        value={email}
+        HandleInputFunction={handleChangeInput}
+      />
+      <Input
+        id="password"
+        type="password"
+        value={Password}
+        HandleInputFunction={handleChangeInput}
+      />
       <SubmitButton />
       <OR> Don't have an Upwork account?</OR>
       <SwitchButton value="Sign Up" />

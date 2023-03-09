@@ -11,6 +11,6 @@ const FormBoxx = styled.form`
   text-align: center;
 `;
 
-export default function FormBox({ children }) {
-  return <FormBoxx>{children}</FormBoxx>;
+export default function FormBox(props) {
+  return <FormBoxx onSubmit={props.SubmitFunction}>{props.children}</FormBoxx>;
 }

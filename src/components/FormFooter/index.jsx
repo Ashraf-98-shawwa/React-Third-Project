@@ -24,7 +24,7 @@ const FooterP = styled.p`
   }
 `;
 
-export default function Footer() {
+export default function FormFooter() {
   return (
     <FooterBox>
       <FooterP>

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useAuthContext } from "../../context/AuthContext";
 
 const Button = styled.button`
   width: 350px;
@@ -15,9 +16,15 @@ const Button = styled.button`
   }
 `;
 export default function SubmitButton(props) {
+  const { isLoading } = useAuthContext();
+
   if (props.value === "Sign Up") {
-    return <Button type="submit"> Create my account</Button>;
+    return (
+      <Button type="submit">
+        {isLoading ? "Loading..." : "Create my account"}
+      </Button>
+    );
   } else {
-    return <Button type="submit">Login</Button>;
+    return <Button type="submit"> {isLoading ? "Loading..." : "Login"}</Button>;
   }
 }
