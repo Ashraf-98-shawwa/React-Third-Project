@@ -15,11 +15,18 @@ import styled from 'styled-components';
      background-color: #9b9b9f;
    }
  `;
+
+const SkillsContainer = styled.div`
+ display:flex;
+ align-items: center;
+ gap: 5px;
+ flex-wrap: wrap;
+ `
 export default function SkillsCard({ technologiesOfItem }) {
 return (
-  <>
+  <SkillsContainer>
     {technologiesOfItem?.map((techItem, index) => (
       <Styledskill key={index}>{techItem}</Styledskill>
     ))}
-  </>
+  </SkillsContainer>
 );}

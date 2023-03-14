@@ -41,12 +41,12 @@ const Special = styled.h4`
   margin-bottom: 10px;
 `;
 
-const Time = styled.p`
+const Time = styled.div`
   color: #5e6d55;
   margin-bottom: 20px;
 `;
 
-const Location = styled.p`
+const Location = styled.div`
   color: #001e00;
   font-size: 16px;
   text-transform: capitalize;
@@ -56,7 +56,7 @@ const Location = styled.p`
   margin-bottom: 10px;
 `;
 
-const Description = styled.p`
+const Description = styled.div`
   font-size: 17px;
   color: #001e00;
 `;
@@ -198,7 +198,7 @@ export default function CanvasCard(props) {
                 fill="green"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M10.559 3.97l2.31-3.757C12.94.095 12.888 0 12.753 0H4v8h8.753c.136 0 .187-.1.116-.217l-2.31-3.814zM1.999 0h1v14H1V0h1z"
                 ></path>
               </svg>
@@ -221,7 +221,7 @@ export default function CanvasCard(props) {
                     viewBox="0 0 14 14"
                     role="img"
                     width="20px"
-                    height="20x"
+                    height="20px"
                     fill="blue"
                   >
                     <path d="M13.72 7.03c.45-.56.34-1.39-.24-1.82l-.55-.41c-.34-.25-.53-.66-.51-1.08l.03-.68c.03-.72-.53-1.32-1.25-1.33h-.68c-.42 0-.81-.22-1.05-.57L9.11.57c-.39-.6-1.2-.75-1.79-.33l-.55.4c-.34.24-.79.3-1.18.15L4.95.55c-.67-.25-1.41.11-1.64.79l-.21.65c-.14.4-.46.71-.87.82l-.65.18C.89 3.19.5 3.92.71 4.6l.21.65c.13.41.04.85-.22 1.18l-.42.54c-.45.56-.34 1.39.24 1.81l.55.41c.34.25.53.66.51 1.08l-.03.68c-.03.72.54 1.32 1.25 1.33h.68c.42 0 .81.22 1.05.57l.37.57c.39.6 1.21.75 1.79.33l.55-.4c.34-.25.78-.31 1.18-.16l.64.24c.67.25 1.41-.1 1.64-.79l.21-.65c.13-.4.45-.71.86-.82l.65-.17c.69-.19 1.09-.92.87-1.61l-.21-.65c-.13-.4-.05-.85.22-1.18l.42-.53zM6.06 9.84L3.5 7.27l1.23-1.23 1.33 1.33 3.21-3.21L10.5 5.4 6.06 9.84z"></path>

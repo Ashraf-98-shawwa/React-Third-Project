@@ -10,7 +10,7 @@ const GreenText = styled.p`
   font-size: 17px;
   display: flex;
   align-items: center;
-  gap:8px;
+  gap: 8px;
   &:hover {
     text-decoration: underline;
   }
@@ -54,10 +54,10 @@ export default function TemporaryDrawer(props) {
           role="img"
           width="20px"
           onClick={toggleDrawer(anchor, false)}
-          style={{ cursor:"pointer" }}
+          style={{ cursor: "pointer" }}
         >
           <polygon
-            fill-rule="evenodd"
+            fillRule="evenodd"
             points="3 7 10.433 14 12 12.524 6.134 7 12 1.476 10.433 0"
           ></polygon>
         </svg>{" "}

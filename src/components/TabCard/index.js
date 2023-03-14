@@ -28,8 +28,9 @@ const Center = styled.div`
   margin: 35px auto;
 `;
 
-const P = styled.p`
+const P = styled.span`
 padding:10px 35px;
+display: block;
 `
 
 export default function TabCard(props) {
@@ -60,7 +61,7 @@ export default function TabCard(props) {
 
   if (props.bestMatches) {
     return (
-      <div>
+      <>
         <P>{props.title}</P>
         {BestMatches?.map((detail) => (
           <JobCard
@@ -90,7 +91,7 @@ export default function TabCard(props) {
         >
           load more jobs
         </Button>
-      </div>
+      </>
     );
   }
 

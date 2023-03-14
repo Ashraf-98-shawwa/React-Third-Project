@@ -21,7 +21,7 @@ export default function SocialLink(props) {
   return (
     <Circule>
       <NavLink to={props.link}>
-        <img width="20px"  src={props.icon} alt="" srcset="" />
+        <img width="20px"  src={props.icon} alt=""/>
       </NavLink>
     </Circule>
   );

@@ -54,8 +54,8 @@ export default function HomeContent() {
         <SearchInput width="775px" />
         <RecentSearches>
           <h4> Recent Searches: </h4>
-          {searchValue.slice(-3).map((value) => (
-            <SearchValue> {value} </SearchValue>
+          {searchValue.slice(-3).map((value,index) => (
+            <SearchValue key={index}> {value} </SearchValue>
           ))}
         </RecentSearches>
         <Jobs />

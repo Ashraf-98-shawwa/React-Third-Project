@@ -6,7 +6,7 @@ const Menus = () => {
   return (
     <Styledul>
       <li>
-        <li>
+        <div>
           Find Work
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -18,16 +18,16 @@ const Menus = () => {
             height="20px"
           >
             <path
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               stroke="var(--icon-color, #001e00)"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-miterlimit="10"
-              stroke-width="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeMiterlimit="10"
+              strokeWidth="1.5"
               d="M18 10l-6 5-6-5"
             ></path>
           </svg>{" "}
-        </li>
+        </div>
         <ul>
           <LiOptions>Find Work</LiOptions>
           <LiOptions>Saved Jobs</LiOptions>
@@ -40,7 +40,7 @@ const Menus = () => {
         </ul>
       </li>
       <li>
-        <li>
+        <div>
           My Jobs
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -52,16 +52,16 @@ const Menus = () => {
             height="20px"
           >
             <path
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               stroke="var(--icon-color, #001e00)"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-miterlimit="10"
-              stroke-width="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeMiterlimit="10"
+              strokeWidth="1.5"
               d="M18 10l-6 5-6-5"
             ></path>
           </svg>{" "}
-        </li>
+        </div>
         <ul>
           <LiOptions>My Jobs</LiOptions>
           <LiOptions>All Contracts</LiOptions>
@@ -69,7 +69,7 @@ const Menus = () => {
         </ul>
       </li>
       <li>
-        <li>
+        <div>
           Reports
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -81,16 +81,16 @@ const Menus = () => {
             height="20px"
           >
             <path
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               stroke="var(--icon-color, #001e00)"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-miterlimit="10"
-              stroke-width="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeMiterlimit="10"
+              strokeWidth="1.5"
               d="M18 10l-6 5-6-5"
             ></path>
           </svg>{" "}
-        </li>
+        </div>
 
         <ul>
           <LiOptions>Overview</LiOptions>

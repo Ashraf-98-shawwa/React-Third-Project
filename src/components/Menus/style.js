@@ -13,13 +13,13 @@ export const Styledul = styled.ul`
     position: relative;
     cursor: pointer;
   }
-  li > li {
+  li > div {
     font-size: 14px;
     display: flex;
     align-items: center;
   }
 
-  li:hover {
+  div:hover {
     color: #3c8224;
   }
   li > ul {
@@ -32,7 +32,7 @@ export const Styledul = styled.ul`
     color: black;
   }
 
-  li ul li {
+  li ul div {
     padding-left: 15px;
   }
 
@@ -42,7 +42,7 @@ export const Styledul = styled.ul`
     width: 200px;
     background-color: #ffffff;
   }
-  li:hover > ul li {
+  li:hover > ul div {
     color: #000;
   }
 

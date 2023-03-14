@@ -2,7 +2,7 @@
   "jobs": [
     {
       "id": 1,
-      "title": "React Developer for Whiteboard based application",
+      "title": "React Developer for Whiteboard based application1",
       "hourlyRate": "$10-$30",
       "expertiseLevel": "Expert",
       "budget": "$450",
@@ -25,11 +25,11 @@
       "rating": 0,
       "amountSpent": "$500+",
       "location": "India",
-      "speciality":"Full Stack Development"
+      "speciality": "Full Stack Development"
     },
     {
       "id": 2,
-      "title": "Design the top and left navigation of application",
+      "title": "Design the top and left navigation of application2",
       "hourlyRate": "Fixed-price",
       "expertiseLevel": "Expert",
       "budget": "$750",
@@ -52,12 +52,11 @@
       "rating": 0,
       "amountSpent": "$500+",
       "location": "Palestine",
-      "speciality":"Front End Development"
-
+      "speciality": "Front End Development"
     },
     {
       "id": 3,
-      "title": "Website Development , Minting Functionality , DAPP application",
+      "title": "Website Development , Minting Functionality , DAPP application3",
       "description": "We are seeking a skilled Blockchain/Web Developer to build a front-end application that will interact with a smart contract. The successful candidate will work closely with our team of designers to bring a pre-designed user interface to life using cutting-edge technologies. Responsibilities: Develop and maintain a front-end application that interacts with a smart contract on the blockchain. Create and implement web3.js functionality to connect to the smart contract. Implement functionality to allow/disallow users off whitelist for minting on the website. Develop a user-friendly interface that meets the design requirements provided in the Figma link. Set up and maintain a secure infrastructure for the website to ensure a smooth and secure user experience. Implement maximum and minimum minting allowed per whitelist. Debug and troubleshoot any issues that arise during the development process. Requirements: Proven experience as a Blockchain/Web Developer. Proficiency in web3.js, React.js, and other front-end technologies. Strong understanding of blockchain technologies and smart contracts. Familiarity with Figma and UI/UX design principles. Experience with test-driven development and agile methodologies. Excellent communication skills and the ability to work collaboratively with a team. Ability to meet deadlines and work efficiently under pressure.",
       "hourlyRate": "Fixed-price",
       "budget": "$150",
@@ -76,12 +75,11 @@
       "rating": 0,
       "amountSpent": "$500+",
       "location": "Palestine",
-      "speciality":"Back End Development"
-
+      "speciality": "Back End Development"
     },
     {
       "id": 4,
-      "title": "Build a Dynamic and Responsive website using Next.js and React.js",
+      "title": "Build a Dynamic and Responsive website using Next.js and React.js4",
       "description": "Looking for a skilled and innovative freelancer to bring our website to life! We need someone who can create a dynamic and responsive website using cutting-edge technologies like Next.js, React.js, Javascript, HTML, and CSS. Your mission, should you choose to accept it, is to design a website that not only looks great but also performs seamlessly across all devices. Responsibilities: Develop a dynamic and responsive website that meets our specifications Collaborate with our team to ensure the website design aligns with our brand and goals Optimize the website for search engines and user experience Troubleshoot and debug any issues that arise during development Provide ongoing support and maintenance for the website Requirements: Proven experience with Next.js, React.js, Javascript, HTML, and CSS Strong attention to detail and ability to follow instructions Ability to work independently and as part of a team Excellent communication skills and responsiveness Portfolio of previous website development projects If you're ready to showcase your skills and take on an exciting challenge, we want you on our team! Apply now and let's build something amazing together.",
       "hourlyRate": "Fixed-price",
       "budget": "$100",
@@ -100,12 +98,11 @@
       "rating": 0,
       "amountSpent": "$500+",
       "location": "Singapore",
-      "speciality":"React Development"
-
+      "speciality": "React Development"
     },
     {
       "id": 5,
-      "title": "React Web Developer using Material UI",
+      "title": "React Web Developer using Material UI5",
       "description": "We are looking for a skilled and experienced Web Developer who is proficient in using Material UI to join our dynamic team. As a Web Developer using Material UI, you will be responsible for developing and maintaining our company's website and ensuring that it is visually appealing and user-friendly. You will work closely with our designers, developers, and project managers to deliver high-quality projects within set timelines. Responsibilities: Develop and maintain the company website using Material UI components and React.js. Collaborate with the design team to create visually appealing and user-friendly interfaces. Write clean, maintainable, and efficient code using modern web development best practices. Troubleshoot and debug issues that arise in the development process. Optimize web applications for maximum speed and scalability. Participate in code reviews and provide constructive feedback to improve code quality. Stay up-to-date with emerging trends and technologies in web development. Requirements: Bachelor's degree in Computer Science or a related field. 3+ years of experience in web development using Material UI and React.js. Strong proficiency in HTML, CSS, and JavaScript. Experience with version control systems such as Git. Understanding of responsive design and cross-browser compatibility. Strong problem-solving and analytical skills. Excellent communication and collaboration skills. Ability to work independently as well as in a team environment. Familiarity with Agile/Scrum methodologies is a plus. If you are a creative and motivated individual who is passionate about web development and has experience using Material UI, we would love to hear from you. We offer a competitive salary, opportunities for professional development, and a fun and collaborative work environment. Please submit your resume and portfolio of relevant work for consideration.",
       "hourlyRate": "$20-$40",
       "budget": "$15-$30",
@@ -127,12 +124,11 @@
       "rating": 0,
       "amountSpent": "$500+",
       "location": "Moldova",
-      "speciality":"Laravel Development"
-
+      "speciality": "Laravel Development"
     },
     {
       "id": 6,
-      "title": "React Web Developer using Material UI",
+      "title": "React Web Developer using Material UI6",
       "description": "We are looking for a skilled and experienced Web Developer who is proficient in using Material UI to join our dynamic team. As a Web Developer using Material UI, you will be responsible for developing and maintaining our company's website and ensuring that it is visually appealing and user-friendly. You will work closely with our designers, developers, and project managers to deliver high-quality projects within set timelines. Responsibilities: Develop and maintain the company website using Material UI components and React.js. Collaborate with the design team to create visually appealing and user-friendly interfaces. Write clean, maintainable, and efficient code using modern web development best practices. Troubleshoot and debug issues that arise in the development process. Optimize web applications for maximum speed and scalability. Participate in code reviews and provide constructive feedback to improve code quality. Stay up-to-date with emerging trends and technologies in web development. Requirements: Bachelor's degree in Computer Science or a related field. 3+ years of experience in web development using Material UI and React.js. Strong proficiency in HTML, CSS, and JavaScript. Experience with version control systems such as Git. Understanding of responsive design and cross-browser compatibility. Strong problem-solving and analytical skills. Excellent communication and collaboration skills. Ability to work independently as well as in a team environment. Familiarity with Agile/Scrum methodologies is a plus. If you are a creative and motivated individual who is passionate about web development and has experience using Material UI, we would love to hear from you. We offer a competitive salary, opportunities for professional development, and a fun and collaborative work environment. Please submit your resume and portfolio of relevant work for consideration.",
       "hourlyRate": "$15-$30",
       "budget": "$900",
@@ -154,12 +150,11 @@
       "rating": 0,
       "amountSpent": "$800+",
       "location": "United States",
-      "speciality":"Windows"
-
+      "speciality": "Windows"
     },
     {
       "id": 7,
-      "title": "React Developer for Whiteboard based application",
+      "title": "React Developer for Whiteboard based application7",
       "hourlyRate": "$10-$30",
       "budget": "$450",
       "expertiseLevel": "Expert",
@@ -182,12 +177,11 @@
       "rating": 0,
       "amountSpent": "$500+",
       "location": "India",
-      "speciality":"Developer"
-
+      "speciality": "Developer"
     },
     {
       "id": 8,
-      "title": "Test Test Test Test",
+      "title": "Test Test Test Test8",
       "hourlyRate": "$10-$30",
       "budget": "$450",
       "expertiseLevel": "Expert",
@@ -210,8 +204,7 @@
       "rating": 0,
       "amountSpent": "$500+",
       "location": "India",
-      "speciality":"C#"
-
+      "speciality": "C#"
     }
   ],
   "personalInformation": [

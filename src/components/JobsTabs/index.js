@@ -19,8 +19,8 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box >
-          <Typography>{children}</Typography>
+        <Box>
+          <span style={{ display:"block" }} >{children}</span>
         </Box>
       )}
     </div>
@@ -50,19 +50,25 @@ export default function JobsTabs() {
 
   return (
     <Box sx={{ width: "820px" }}>
+
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
           onChange={handleChange}
-          textColor="black"
+          textColor="inherit"
           indicatorColor="primary"
           aria-label="secondary tabs example"
         >
           <Tab label="Best Matches" {...a11yProps(0)} />
           <Tab label="Most Recent" {...a11yProps(1)} />
-          <Tab label={"Saved Jobs" +"(" + state.count + ")"} {...a11yProps(2)} />
+          <Tab
+            label={"Saved Jobs" + "(" + state.count + ")"}
+            {...a11yProps(2)}
+          />
         </Tabs>
       </Box>
+
+      
       <TabPanel value={value} index={0}>
         <TabCard
           title="Browse jobs that match your experience to a client's hiring preferences. Ordered by most relevant."

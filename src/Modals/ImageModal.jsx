@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
+import { ButtonStyled, ButtonStyledTwo, InputStyled } from "./TitleModal";
 
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: "50%",
+  height: "400px",
   bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
   p: 4,
+  borderRadius: "16px",
 };
 
 const ImageModal = (props) => {
@@ -88,19 +88,37 @@ const ImageModal = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Edit Your Title
+          <Typography
+            style={{ display: "flex", justifyContent: "space-between" }}
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+          >
+            {" "}
+            Upload New Image
+            <span onClick={handleClose} style={{ cursor: "pointer" }}>
+              X
+            </span>
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Your title: Enter a single sentence description of your professional
-            skills/experience (e.g. Expert Web Designer with Ajax experience)
+          <Typography id="modal-modal-description" sx={{ mt: 8 }}>
+            Show clients the best version of yourself!
           </Typography>
-          <form onSubmit={handleUpdateTitle}>
-            <input type="text" value={newImg} onChange={handleChangeInput} />
-            <button type="submit">save</button>
-            <button type="button" onClick={handleClose}>
+          <form style={{ marginTop: "20px" }} onSubmit={handleUpdateTitle}>
+            <label>Insert the URL of the photo to upload</label>
+            <InputStyled
+              style={{ marginBottom: "20px" }}
+              type="text"
+              value={newImg}
+              onChange={handleChangeInput}
+            />
+
+            <div style={{ width:"fit-content",marginLeft:"auto" }}>
+
+            <ButtonStyledTwo type="button" onClick={handleClose}>
               cancel
-            </button>
+            </ButtonStyledTwo>
+            <ButtonStyled type="submit">Save Photo</ButtonStyled>
+            </div>
           </form>
         </Box>
       </Modal>
