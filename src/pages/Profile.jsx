@@ -1,16 +1,17 @@
 import React from "react";
+
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Container from "../components/Container";
-import HomeContent from "../Sections/HomeContent";
-import Footer from "../components/Footer";
+import ProfileContent from "../Sections/ProfileContent";
 
-export default function Home() {
+export default function Profile() {
   return (
     <div>
       <Container>
         <Header />
-        <HomeContent />
-        <Footer/>
+        <ProfileContent />
+        <Footer />
       </Container>
     </div>
   );

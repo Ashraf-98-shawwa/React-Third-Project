@@ -5,6 +5,10 @@ export const Styledul = styled.ul`
   gap: 20px;
   list-style-type: none;
 
+  & ul {
+    z-index: 9999999;
+  }
+
   li {
     position: relative;
     cursor: pointer;

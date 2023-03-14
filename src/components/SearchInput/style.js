@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Search = styled.form`
   display: flex;
   align-items: center;
-  margin: 30px 0;
+  margin: 30px 0 8px 0;
+  margin: ${(props) => (props.margin ? " 10px 0 8px 0" : " 30px 0 8px 0")};
 `;
 
 export const Iconsearch = styled.button`

@@ -1,11 +1,14 @@
 import { useState } from "react";
 
 const useAuth = (url) => {
+  const searchedValues = JSON.parse(localStorage.getItem("searchValues")) || [];
+
   const [isLoading, setIsLoading] = useState(false);
   const [isAuthorized, setisAuthorized] = useState(false);
   const [Errors, setErrors] = useState([]);
   const [Token, setToken] = useState("");
   const [username, setusername] = useState("");
+  const [searchValue, setSearchValue] = useState(searchedValues);
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -27,6 +30,8 @@ const useAuth = (url) => {
     username,
     setusername,
     logout,
+    searchValue,
+    setSearchValue,
   };
 };
 

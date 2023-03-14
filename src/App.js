@@ -5,6 +5,9 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import JobProvider from "./context/jobContext";
+import Filter from "./pages/Filter";
+import Profile from "./pages/Profile";
+import JobDetails from "./pages/JobDetails";
 
 function App() {
   const { isAuthorized, setToken, setisAuthorized } = useAuthContext();
@@ -34,6 +37,19 @@ function App() {
             <Route
               path="/Home"
               element={isAuthorized ? <Home /> : <Navigate to="/Login" />}
+            />
+            <Route
+              path="/Filter"
+              element={isAuthorized ? <Filter /> : <Navigate to="/Login" />}
+            />
+            <Route
+              path="/Profile"
+              element={isAuthorized ? <Profile /> : <Navigate to="/Login" />}
+            />
+            <Route path="/Redirect" element={<Navigate to="/Profile" />} />
+            <Route
+              path="/JobDetails/:id"
+              element={isAuthorized ? <JobDetails /> : <Navigate to="/Login" />}
             />
           </Routes>
         </BrowserRouter>

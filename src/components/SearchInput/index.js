@@ -3,10 +3,13 @@ import { Autocomplete, TextField } from "@mui/material";
 import { Iconsearch, Search } from "./style";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../context/AuthContext";
 
-export default function SearchInput() {
+export default function SearchInput(props) {
   const [search, setSearch] = useState("");
   const [allJobs, setAllJobs] = useState([]);
+    const { searchValue, setSearchValue } = useAuthContext();
+
 
   useEffect(() => {
     (async () => {
@@ -28,10 +31,13 @@ export default function SearchInput() {
     e.preventDefault();
     navigate("/filter");
     localStorage.setItem("search", search);
+     const searched = [...searchValue, search];
+    setSearchValue((prevState) => [...prevState, search]);
+    localStorage.setItem("searchValues", JSON.stringify(searched));
   };
 
   return (
-    <Search onSubmit={handleSubmit}>
+    <Search margin={props.margin} onSubmit={handleSubmit}>
       <Autocomplete
         freeSolo
         id="free-solo-2-demo"
@@ -41,20 +47,24 @@ export default function SearchInput() {
           <TextField
             sx={{
               "& .MuiOutlinedInput-root": {
-                // border: "1px solid yellow",
                 borderTopLeftRadius: "8px",
                 borderBottomLeftRadius: "8px",
-                padding: "0",
+                padding: "0 10px",
                 border: "none",
-                width: "775px",
+                width: props.width,
+              },
+
+              "& .MuiOutlinedInput-root:active": {
+                border: "none",
               },
               "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
                 border: "1px solid #e4ebe4",
-                width: "775px",
+                width: props.width,
               },
             }}
             {...params}
             onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search for job"
             InputProps={{
               ...params.InputProps,
               type: "search",

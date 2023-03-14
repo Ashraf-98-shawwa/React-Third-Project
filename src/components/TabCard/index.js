@@ -11,17 +11,42 @@ const Center = styled.div`
   flex-direction: column;
   gap: 10px;
   align-items: center;
+  margin-bottom: 35px;
 `;
+
+ const Button = styled.button`
+  border: 3px solid green;
+  border-radius: 50px;
+  cursor: pointer;
+  padding: 10px ;
+  width: fit-content;
+  margin: auto;
+  display: block;
+  color: green;
+  font-size: 16px;
+  text-transform: capitalize;
+  margin: 35px auto;
+`;
+
+const P = styled.p`
+padding:10px 35px;
+`
 
 export default function TabCard(props) {
   const { state } = useJobContext();
   const [BestMatches, setBestMatches] = useState([]);
 
+  const [count, setCount] = useState(3);
+
+  const handleCount = () => {
+    setCount((prevState) => prevState + 3);
+  };
+
   useEffect(() => {
     (async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3004/jobs?_sort=id&_order=desc`
+          `http://localhost:3004/jobs?_sort=id&_order=desc_page=1&_limit=${count}`
         );
 
         if (res) {
@@ -31,12 +56,12 @@ export default function TabCard(props) {
         console.log(error);
       }
     })();
-  }, []);
+  }, [count]);
 
   if (props.bestMatches) {
     return (
       <div>
-        <p>{props.title}</p>
+        <P>{props.title}</P>
         {BestMatches?.map((detail) => (
           <JobCard
             key={detail.id}
@@ -56,6 +81,15 @@ export default function TabCard(props) {
             detail={detail}
           />
         ))}
+
+        <Button
+          onClick={handleCount}
+          variant="outlined"
+          color="success"
+          sx={{ borderRadius: "6px", margin: "10px 300px" }}
+        >
+          load more jobs
+        </Button>
       </div>
     );
   }
@@ -63,7 +97,7 @@ export default function TabCard(props) {
   if (props.mostRecent) {
     return (
       <div>
-        <p>{props.title}</p>
+        <P>{props.title}</P>
         {BestMatches?.map((detail) => (
           <JobCard
             key={detail.id}
@@ -83,6 +117,14 @@ export default function TabCard(props) {
             detail={detail}
           />
         ))}
+        <Button
+          onClick={handleCount}
+          variant="outlined"
+          color="success"
+          sx={{ borderRadius: "6px", margin: "10px 300px" }}
+        >
+          load more jobs
+        </Button>
       </div>
     );
   }
@@ -91,6 +133,7 @@ export default function TabCard(props) {
     return (
       <div>
         {state.jobs.length > 0 ? (
+
           state.jobs?.map((detail) => (
             <JobCard
               key={detail.id}
@@ -109,7 +152,10 @@ export default function TabCard(props) {
               technologies={detail.technologies}
               detail={detail}
             />
-          ))
+          )
+          
+          
+          )
         ) : (
           <>
             <Center>
@@ -118,6 +164,10 @@ export default function TabCard(props) {
             </Center>
           </>
         )}
+
+        
+
+
       </div>
     );
   }

@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Menus from "../Menus";
+import axios from "axios";
 
 // import pics
-import profile from "../../Images/profile.jpg";
 import arrow from "../../Images/arrow.png";
 import notification from "../../Images/notification.png";
 import question from "../../Images/question.png";
+import SearchInput from "../SearchInput";
 
 const HeaderBox = styled.div`
   height: 64px;
@@ -40,6 +41,24 @@ const SignUpP = styled.p`
 `;
 
 export default function Header(props) {
+    const[img,setImg] =useState("");
+
+  
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await axios.get(
+          "http://localhost:3004/personalInformation"
+        );
+        if (res) {
+          setImg(res.data[0].image)
+
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
   if (props.login) {
     return (
       <HeaderBox>
@@ -154,7 +173,7 @@ export default function Header(props) {
           </LeftMenu>
         </LeftBox>
         <RightBox>
-          
+          <SearchInput margin={true} width="250px" />
           <img
             width="35px"
             height="40px"
@@ -180,7 +199,7 @@ export default function Header(props) {
             width="35px"
             height="35px"
             style={{ borderRadius: "50%", cursor: "pointer" }}
-            src={profile}
+            src={img}
             alt=""
           />
         </RightBox>

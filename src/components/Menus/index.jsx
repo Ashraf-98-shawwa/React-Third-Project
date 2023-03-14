@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { LiMsg, LiOptions, Styledul } from "./style";
 
 const Menus = () => {
@@ -28,9 +29,14 @@ const Menus = () => {
           </svg>{" "}
         </li>
         <ul>
+          <LiOptions>Find Work</LiOptions>
           <LiOptions>Saved Jobs</LiOptions>
           <LiOptions>Proposals</LiOptions>
-          <LiOptions>Profile</LiOptions>
+          <LiOptions>
+            <NavLink to="/Profile">Profile</NavLink>
+          </LiOptions>
+          <LiOptions>My Stats</LiOptions>
+          <LiOptions>My Project Dashboard</LiOptions>
         </ul>
       </li>
       <li>
@@ -89,7 +95,10 @@ const Menus = () => {
         <ul>
           <LiOptions>Overview</LiOptions>
           <LiOptions>My Reports</LiOptions>
+          <LiOptions>Billing & Earnings</LiOptions>
+          <LiOptions>Connects History</LiOptions>
           <LiOptions>Transaction History</LiOptions>
+          <LiOptions>Certificate of Earnings</LiOptions>
         </ul>
       </li>
       <LiMsg>Messages</LiMsg>
