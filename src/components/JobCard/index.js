@@ -5,7 +5,7 @@ import { useJobContext } from "../../context/jobContext";
 import TemporaryDrawer from "../Canvas";
 
 export const Cardjob = styled.span`
-display: block;
+  display: block;
   position: relative;
   padding: 35px;
   border-bottom: 1px solid rgb(228, 235, 228);
@@ -19,8 +19,8 @@ display: block;
 `;
 
 export const JobTitle = styled.h3`
-font-size: 20px;
-margin-bottom: 15px;
+  font-size: 20px;
+  margin-bottom: 15px;
 `;
 
 export const Jobdetail = styled.div`
@@ -51,18 +51,17 @@ const Button = styled.button`
   justify-content: center;
 `;
 
-
 const Span = styled.span`
-
-color: green;
-background-color: #fefefe;
-`
+  z-index: 999999999;
+  color: green;
+  background-color: #fefefe;
+  display: block;
+  width: fit-content;
+`;
 
 export default function JobCard(props) {
   const { state, addToSaved, removeFromSaved } = useJobContext();
   const [FullDescription, setFullDescription] = useState(false);
-
-
 
   const toggleDescription = () => {
     setFullDescription(!FullDescription);
@@ -78,7 +77,6 @@ export default function JobCard(props) {
       removeFromSaved(detail.id);
     } else {
       addToSaved(detail);
-      
     }
   };
   return (
@@ -90,20 +88,24 @@ export default function JobCard(props) {
           {props.estimatedTime},{props.hoursPerWeek} - Budget:
           {props.budget} - Posted in:{props.posted}
         </Jobdetail>
-        <JobDescription>
+      </TemporaryDrawer>
+
+      <JobDescription>
+        <TemporaryDrawer detail={props.detail}>
           {FullDescription
             ? props.description
             : `${props.description.slice(0, 200)}.. `}
+        </TemporaryDrawer>
 
-          <Span type="button" onClick={toggleDescription}>
-            {FullDescription ? "  Less" : "  More"}
-          </Span>
-        </JobDescription>
-
+        <Span type="button" onClick={toggleDescription}>
+          {FullDescription ? "  Less" : "  See More"}
+        </Span>
+      </JobDescription>
+      <TemporaryDrawer detail={props.detail}>
         <SkillsCard technologiesOfItem={props.technologies} />
 
-        <span style={{ display:"block" }}>Proposals: {props.proposals}</span>
-        <span style={{ display:"block" }}>
+        <span style={{ display: "block" }}>Proposals: {props.proposals}</span>
+        <span style={{ display: "block" }}>
           {props.amountSpent} spent {props.location}
         </span>
       </TemporaryDrawer>

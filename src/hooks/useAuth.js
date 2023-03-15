@@ -1,23 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const useAuth = (url) => {
   const searchedValues = JSON.parse(localStorage.getItem("searchValues")) || [];
+     const token = localStorage.getItem("token");
 
   const [isLoading, setIsLoading] = useState(false);
-  const [isAuthorized, setisAuthorized] = useState(false);
+  const [isAuthorized, setisAuthorized] = useState(token? true : false);
   const [Errors, setErrors] = useState([]);
   const [Token, setToken] = useState("");
   const [username, setusername] = useState("");
   const [searchValue, setSearchValue] = useState(searchedValues);
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setToken(token);
-      setisAuthorized(true);
-    }
-  }, [setToken, setisAuthorized]);
-
+ 
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("name");

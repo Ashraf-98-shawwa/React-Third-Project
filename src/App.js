@@ -17,6 +17,8 @@ const JobDetails = lazy(() => import("./pages/JobDetails"));
 
 function App() {
   const { isAuthorized } = useAuthContext();
+   
+  
 const style = {
   position: "absolute",
   top: "50%",
