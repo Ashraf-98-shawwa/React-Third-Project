@@ -13,7 +13,7 @@ export default function Checkbox(props) {
   return (
     <CheckboxBox>
       <input style={{ cursor: "pointer" }} type="checkbox" id={props.id} />
-      <label style={{ cursor: "pointer" }} for={props.id}>
+      <label style={{ cursor: "pointer" }} htmlFor={props.id}>
         {props.title}
       </label>
     </CheckboxBox>

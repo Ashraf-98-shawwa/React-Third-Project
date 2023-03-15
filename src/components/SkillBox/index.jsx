@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ButtonStyled, ButtonStyledTwo } from "../../Modals/TitleModal";
 
 export default function SkillBox(props) {
@@ -15,7 +15,7 @@ export default function SkillBox(props) {
   const [title, setTitle] = useState("");
   const [rate, setRate] = useState("");
   const [img, setImg] = useState("");
-  const [navigator, setNavigator] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -69,7 +69,7 @@ export default function SkillBox(props) {
           }
         );
         if (res) {
-          setNavigator(true);
+          navigate(0);
         }
       } catch (error) {
         console.log(error);
@@ -107,7 +107,6 @@ export default function SkillBox(props) {
           )}
         />
 
-        {navigator ? <Navigate to={"/redirect"} /> : ""}
       </Stack>
       <form
         style={{ width: "fit-content", marginLeft: "auto", marginTop: "50px" }}

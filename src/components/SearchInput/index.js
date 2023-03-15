@@ -8,8 +8,7 @@ import { useAuthContext } from "../../context/AuthContext";
 export default function SearchInput(props) {
   const [search, setSearch] = useState("");
   const [allJobs, setAllJobs] = useState([]);
-    const { searchValue, setSearchValue } = useAuthContext();
-
+  const { searchValue, setSearchValue } = useAuthContext();
 
   useEffect(() => {
     (async () => {
@@ -30,10 +29,10 @@ export default function SearchInput(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("search", search);
-     const searched = [...searchValue, search];
-     setSearchValue((prevState) => [...prevState, search]);
-     localStorage.setItem("searchValues", JSON.stringify(searched));
-     navigate("/RedirectFilter");
+    const searched = [...searchValue, search];
+    setSearchValue((prevState) => [...prevState, search]);
+    localStorage.setItem("searchValues", JSON.stringify(searched));
+    props.current ? navigate(0) : navigate("/Filter");
   };
 
   return (

@@ -16,7 +16,7 @@ const GreenText = styled.p`
     text-decoration: underline;
   }
 `;
-const Div = styled.div`
+const Div = styled.span`
   cursor: pointer;
 `;
 
@@ -91,7 +91,7 @@ export default function TemporaryDrawer(props) {
   );
 
   return (
-    <div>
+    <>
       <React.Fragment key={"right"}>
         <Div onClick={toggleDrawer("right", true)}>{props.children}</Div>
         <Drawer
@@ -102,6 +102,6 @@ export default function TemporaryDrawer(props) {
           {list("right")}
         </Drawer>
       </React.Fragment>
-    </div>
+    </>
   );
 }

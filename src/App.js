@@ -1,10 +1,10 @@
 import React, { lazy, Suspense } from "react";
 import JobProvider from "./context/jobContext";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { useAuthContext } from "./context/AuthContext";
 import { CircularProgress } from "@mui/material";
 import ErrorBoundary from "./components/ErrorBoundary";
-
+import { AnimatePresence } from "framer-motion";
 
 const Home = lazy(() => import("./pages/Home"));
 const Login = lazy(() => import("./pages/Login"));
@@ -13,29 +13,26 @@ const Filter = lazy(() => import("./pages/Filter"));
 const Profile = lazy(() => import("./pages/Profile"));
 const JobDetails = lazy(() => import("./pages/JobDetails"));
 
-
-
 function App() {
   const { isAuthorized } = useAuthContext();
-   
-  
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
- 
-};
-  
+  const location = useLocation();
+
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+  };
+
   return (
     <div className="App">
       <JobProvider>
         <ErrorBoundary>
-          <BrowserRouter>
-            <Suspense
-              fallback={<CircularProgress style={style} color="success" />}
-            >
-              <Routes>
+          <Suspense
+            fallback={<CircularProgress style={style} color="success" />}
+          >
+            <AnimatePresence>
+              <Routes location={location} key={location.pathname}>
                 <Route index element={<Navigate to="/Login" />} />
                 <Route
                   path="/Login"
@@ -59,11 +56,6 @@ const style = {
                     isAuthorized ? <Profile /> : <Navigate to="/Login" />
                   }
                 />
-                <Route path="/Redirect" element={<Navigate to="/Profile" />} />
-                <Route
-                  path="/RedirectFilter"
-                  element={<Navigate to="/Filter" />}
-                />
                 <Route
                   path="/JobDetails/:id"
                   element={
@@ -72,8 +64,8 @@ const style = {
                 />
                 <Route path="*" element={<div>404 Not Found</div>} />
               </Routes>
-            </Suspense>
-          </BrowserRouter>
+            </AnimatePresence>
+          </Suspense>
         </ErrorBoundary>
       </JobProvider>
     </div>

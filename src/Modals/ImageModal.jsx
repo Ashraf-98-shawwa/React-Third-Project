@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ButtonStyled, ButtonStyledTwo, InputStyled } from "./TitleModal";
 import { motion as m } from "framer-motion";
 
@@ -28,8 +28,7 @@ const ImageModal = (props) => {
   const [rate, setRate] = useState("");
   const [skills, setSkills] = useState([]);
   const [title, setTitle] = useState("");
-
-  const [navigator, setNavigator] = useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     (async () => {
@@ -71,7 +70,7 @@ const ImageModal = (props) => {
           }
         );
         if (res) {
-          setNavigator(true);
+          navigate(0);
         }
       } catch (error) {
         console.log(error);
@@ -129,7 +128,7 @@ const ImageModal = (props) => {
           </m.div>
         </Box>
       </Modal>
-      {navigator ? <Navigate to={"/redirect"} /> : ""}
+     
     </div>
   );
 };

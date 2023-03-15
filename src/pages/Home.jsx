@@ -11,6 +11,7 @@ export default function Home() {
     <m.div
       initial={{ y: 250 }}
       animate={{ y: 0 }}
+      exit={{ opacity:0 }}
       transition={{ duration: 0.75, ease: "easeOut" }}
     >
       <Container>

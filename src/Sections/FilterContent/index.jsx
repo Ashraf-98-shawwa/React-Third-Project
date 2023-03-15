@@ -415,7 +415,7 @@ export default function FilterContent(props) {
             <Filters>
               <Title>Search</Title>
               <Flex>
-                <SearchInput width="550px" />
+                <SearchInput current={props.current?true:false} width="550px" />
                 <Button bg="white" TC="#108a00" title="Save search" />
               </Flex>
               <GreenText NoPadding>Advanced Search</GreenText>

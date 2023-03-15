@@ -209,9 +209,9 @@
   ],
   "personalInformation": [
     {
-      "rate": "100",
+      "rate": "80",
       "overview": "Hello !\n\nI'm a front-end web developer who will focus on delivering top-quality frontend interfaces, performance, and structures.\n\nSkills :\n- HTML5 / CSS3 / SASS\n- JavaScript / JQuery\n- Bootstrap\n- Convert design into responsive website\n- PSD to HTML/CSS\n\nI can guarantee:\n- Fast response and good communication skills\n- well organized/commented code\n- Testing and cross-browser compatibility\n- After-contract support\n\nI will gladly help you with your project , Let's start now!\n\nhi ",
-      "title": "Full Stack Developer ",
+      "title": "Full Stack Developer",
       "skills": [
         {
           "id": 2,
@@ -228,10 +228,6 @@
         {
           "id": 7,
           "title": "laravel"
-        },
-        {
-          "id": 6,
-          "title": "php"
         },
         {
           "id": 11,
@@ -254,20 +250,8 @@
           "title": "css"
         },
         {
-          "id": 5,
-          "title": "HDD"
-        },
-        {
-          "id": 1,
-          "title": "react"
-        },
-        {
           "id": 9,
           "title": "AI"
-        },
-        {
-          "id": 3,
-          "title": "vue"
         },
         {
           "id": 18,

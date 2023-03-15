@@ -34,8 +34,8 @@ export default function Filter() {
       transition={{ duration: 0.75, ease: "easeOut" }}
     >
       <Container>
-        <Header />
-        <FilterContent jobs={filterredJobs} />
+        <Header current={true} />
+        <FilterContent current={true} jobs={filterredJobs} />
         <Footer />
         <ScrollButton />
       </Container>

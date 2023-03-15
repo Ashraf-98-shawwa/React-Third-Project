@@ -198,7 +198,7 @@ export default function Header(props) {
           </LeftMenu>
         </LeftBox>
         <RightBox>
-          <SearchInput margin={true} width="250px" />
+          <SearchInput current={props.current?true:false} margin={true} width="250px" />
           <img
             width="35px"
             height="40px"
