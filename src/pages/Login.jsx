@@ -3,15 +3,20 @@ import Container from "../components/Container";
 import FormFooter from "../components/FormFooter";
 import Header from "../components/Header";
 import LoginForm from "../components/LoginForm";
+import { motion as m } from "framer-motion";
 
 export default function Login() {
   return (
-    <div>
+    <m.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
+    >
       <Container>
         <Header login />
         <LoginForm />
         <FormFooter />
       </Container>
-    </div>
+    </m.div>
   );
 }

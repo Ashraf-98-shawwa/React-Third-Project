@@ -6,6 +6,7 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 import styled from "styled-components";
 import { ButtonStyled, ButtonStyledTwo } from "./TitleModal";
+import { motion as m } from "framer-motion";
 
 import dollar from "../Images/dollar.png";
 
@@ -142,83 +143,89 @@ const RateModal = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography
-            style={{ display: "flex", justifyContent: "space-between" }}
-            id="modal-modal-title"
-            variant="h6"
-            component="h2"
+          <m.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            Change hourly rate
-            <span onClick={handleClose} style={{ cursor: "pointer" }}>
-              X
-            </span>
-          </Typography>
-          <Typography
-            sx={{ mt: 6, mb: 2, opacity: "90%" }}
-            id="modal-modal-description"
-          >
-            Please note that your new hourly rate will only apply to new
-            contracts.
-            <br />
-            <br />
-            The Upwork Service Fee is 20% when you begin a contract with a new
-            client. Once you bill over $500 with your client, the fee will be
-            10%.
-            <br />
-            <br />
-            Your profile rate: $15.00/hr
-          </Typography>
-          <form onSubmit={handleUpdateTitle}>
-            <InputBox>
-              <label htmlFor="newRate">
-                Hourly Rate<div>Total amount the client will see</div>
-              </label>
+            <Typography
+              style={{ display: "flex", justifyContent: "space-between" }}
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+            >
+              Change hourly rate
+              <span onClick={handleClose} style={{ cursor: "pointer" }}>
+                X
+              </span>
+            </Typography>
+            <Typography
+              sx={{ mt: 6, mb: 2, opacity: "90%" }}
+              id="modal-modal-description"
+            >
+              Please note that your new hourly rate will only apply to new
+              contracts.
+              <br />
+              <br />
+              The Upwork Service Fee is 20% when you begin a contract with a new
+              client. Once you bill over $500 with your client, the fee will be
+              10%.
+              <br />
+              <br />
+              Your profile rate: $15.00/hr
+            </Typography>
+            <form onSubmit={handleUpdateTitle}>
+              <InputBox>
+                <label htmlFor="newRate">
+                  Hourly Rate<div>Total amount the client will see</div>
+                </label>
 
-              <InputStyled
-                type="text"
-                value={newRate}
-                onChange={handleChangeInput}
-                id="newRate"
-              />
-              <P>/hr</P>
-              <Img src={dollar} alt="dollar" />
-            </InputBox>
-            <InputBox>
-              <label htmlFor="fee">20% Upwork Service Fee</label>
+                <InputStyled
+                  type="text"
+                  value={newRate}
+                  onChange={handleChangeInput}
+                  id="newRate"
+                />
+                <P>/hr</P>
+                <Img src={dollar} alt="dollar" />
+              </InputBox>
+              <InputBox>
+                <label htmlFor="fee">20% Upwork Service Fee</label>
 
-              <InputStyled
-                type="text"
-                value={fee}
-                onChange={handleChangeInput}
-                id="fee"
-                disabled
-              />
-              <P>/hr</P>
-              <Img src={dollar} alt="dollar" />
-            </InputBox>
-            <InputBox>
-              <label htmlFor="newRate">
-                You'll Receive
-                <div>
-                  The estimated amount you'll receive after service fees
-                </div>
-              </label>
-              <InputStyled
-                type="text"
-                value={receive}
-                onChange={handleChangeInput}
-                id="receive"
-              />
-              <P>/hr</P>
-              <Img src={dollar} alt="dollar" />
-            </InputBox>
-            <div style={{ width: "fit-content", marginLeft: "auto" }}>
-              <ButtonStyledTwo type="button" onClick={handleClose}>
-                cancel
-              </ButtonStyledTwo>
-              <ButtonStyled type="submit">save</ButtonStyled>
-            </div>
-          </form>
+                <InputStyled
+                  type="text"
+                  value={fee}
+                  onChange={handleChangeInput}
+                  id="fee"
+                  disabled
+                />
+                <P>/hr</P>
+                <Img src={dollar} alt="dollar" />
+              </InputBox>
+              <InputBox>
+                <label htmlFor="newRate">
+                  You'll Receive
+                  <div>
+                    The estimated amount you'll receive after service fees
+                  </div>
+                </label>
+                <InputStyled
+                  type="text"
+                  value={receive}
+                  onChange={handleChangeInput}
+                  id="receive"
+                />
+                <P>/hr</P>
+                <Img src={dollar} alt="dollar" />
+              </InputBox>
+              <div style={{ width: "fit-content", marginLeft: "auto" }}>
+                <ButtonStyledTwo type="button" onClick={handleClose}>
+                  cancel
+                </ButtonStyledTwo>
+                <ButtonStyled type="submit">save</ButtonStyled>
+              </div>
+            </form>
+          </m.div>
         </Box>
       </Modal>
       {navigator ? <Navigate to={"/redirect"} /> : ""}

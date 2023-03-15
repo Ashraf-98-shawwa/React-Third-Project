@@ -5,6 +5,7 @@ import Modal from "@mui/material/Modal";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { ButtonStyled, ButtonStyledTwo, InputStyled } from "./TitleModal";
+import { motion as m } from "framer-motion";
 
 const style = {
   position: "absolute",
@@ -80,6 +81,7 @@ const ImageModal = (props) => {
 
   return (
     <div>
+      {" "}
       <div onClick={handleOpen}>{props.children}</div>
       <Modal
         open={open}
@@ -88,38 +90,43 @@ const ImageModal = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography
-            style={{ display: "flex", justifyContent: "space-between" }}
-            id="modal-modal-title"
-            variant="h6"
-            component="h2"
+          <m.div
+            initial={{ opacity: 0 ,y:150}}
+            animate={{ opacity: 1 ,y:0}}
+            transition={{ duration: 0.75, ease: "easeOut" }}
           >
-            {" "}
-            Upload New Image
-            <span onClick={handleClose} style={{ cursor: "pointer" }}>
-              X
-            </span>
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 8 }}>
-            Show clients the best version of yourself!
-          </Typography>
-          <form style={{ marginTop: "20px" }} onSubmit={handleUpdateTitle}>
-            <label>Insert the URL of the photo to upload</label>
-            <InputStyled
-              style={{ marginBottom: "20px" }}
-              type="text"
-              value={newImg}
-              onChange={handleChangeInput}
-            />
+            <Typography
+              style={{ display: "flex", justifyContent: "space-between" }}
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+            >
+              {" "}
+              Upload New Image
+              <span onClick={handleClose} style={{ cursor: "pointer" }}>
+                X
+              </span>
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 8 }}>
+              Show clients the best version of yourself!
+            </Typography>
+            <form style={{ marginTop: "20px" }} onSubmit={handleUpdateTitle}>
+              <label>Insert the URL of the photo to upload</label>
+              <InputStyled
+                style={{ marginBottom: "20px" }}
+                type="text"
+                value={newImg}
+                onChange={handleChangeInput}
+              />
 
-            <div style={{ width:"fit-content",marginLeft:"auto" }}>
-
-            <ButtonStyledTwo type="button" onClick={handleClose}>
-              cancel
-            </ButtonStyledTwo>
-            <ButtonStyled type="submit">Save Photo</ButtonStyled>
-            </div>
-          </form>
+              <div style={{ width: "fit-content", marginLeft: "auto" }}>
+                <ButtonStyledTwo type="button" onClick={handleClose}>
+                  cancel
+                </ButtonStyledTwo>
+                <ButtonStyled type="submit">Save Photo</ButtonStyled>
+              </div>
+            </form>
+          </m.div>
         </Box>
       </Modal>
       {navigator ? <Navigate to={"/redirect"} /> : ""}

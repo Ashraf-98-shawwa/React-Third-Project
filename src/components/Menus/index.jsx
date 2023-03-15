@@ -29,12 +29,15 @@ const Menus = () => {
           </svg>{" "}
         </div>
         <ul>
-          <LiOptions>Find Work</LiOptions>
+          {" "}
+          <NavLink to="/Home">
+            <LiOptions>Find Work</LiOptions>
+          </NavLink>
           <LiOptions>Saved Jobs</LiOptions>
           <LiOptions>Proposals</LiOptions>
-          <LiOptions>
-            <NavLink to="/Profile">Profile</NavLink>
-          </LiOptions>
+          <NavLink to="/Profile">
+            <LiOptions>Profile</LiOptions>
+          </NavLink>
           <LiOptions>My Stats</LiOptions>
           <LiOptions>My Project Dashboard</LiOptions>
         </ul>

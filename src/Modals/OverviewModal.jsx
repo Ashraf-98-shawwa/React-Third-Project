@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
-// import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { ButtonStyled, ButtonStyledTwo } from "./TitleModal";
+import { motion as m } from "framer-motion";
 
 const style = {
   position: "absolute",
@@ -89,60 +89,66 @@ const OverviewModal = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography
-            style={{ display: "flex", justifyContent: "space-between" }}
-            id="modal-modal-title"
-            variant="h6"
-            component="h2"
+          <m.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, ease: "easeOut" }}
           >
-            Edit Your Overview
-            <span onClick={handleClose} style={{ cursor: "pointer" }}>
-              X
-            </span>
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 8 }}>
-            Use this space to show clients you have the skills and experience
-            they're looking for.
-          </Typography>
-          <ul
-            style={{
-              marginTop: "10px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "10px",
-            }}
-          >
-            <li>Describe your strengths and skills</li>
-            <li>Highlight projects, accomplishments and education</li>
-            <li>Keep it short and make sure it's error-free</li>
-          </ul>
-          <form onSubmit={handleUpdateTitle}>
-            <textarea
+            <Typography
+              style={{ display: "flex", justifyContent: "space-between" }}
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+            >
+              Edit Your Overview
+              <span onClick={handleClose} style={{ cursor: "pointer" }}>
+                X
+              </span>
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 8 }}>
+              Use this space to show clients you have the skills and experience
+              they're looking for.
+            </Typography>
+            <ul
               style={{
-                display: "block",
-                width: "100%",
-                marginTop: "50px",
-                outline: "none",
-                marginBottom: "50px",
-              }}
-              rows="10"
-              type="text"
-              value={newOverView}
-              onChange={handleChangeInput}
-            />
-
-            <div
-              style={{
-                width: "fit-content",
-                marginLeft: "auto",
+                marginTop: "10px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
               }}
             >
-              <ButtonStyledTwo type="button" onClick={handleClose}>
-                cancel
-              </ButtonStyledTwo>
-              <ButtonStyled type="submit">save</ButtonStyled>
-            </div>
-          </form>
+              <li>Describe your strengths and skills</li>
+              <li>Highlight projects, accomplishments and education</li>
+              <li>Keep it short and make sure it's error-free</li>
+            </ul>
+            <form onSubmit={handleUpdateTitle}>
+              <textarea
+                style={{
+                  display: "block",
+                  width: "100%",
+                  marginTop: "50px",
+                  outline: "none",
+                  marginBottom: "50px",
+                }}
+                rows="10"
+                type="text"
+                value={newOverView}
+                onChange={handleChangeInput}
+              />
+
+              <div
+                style={{
+                  width: "fit-content",
+                  marginLeft: "auto",
+                }}
+              >
+                <ButtonStyledTwo type="button" onClick={handleClose}>
+                  cancel
+                </ButtonStyledTwo>
+                <ButtonStyled type="submit">save</ButtonStyled>
+              </div>
+            </form>
+          </m.div>
         </Box>
       </Modal>
       {navigator ? <Navigate to={"/redirect"} /> : ""}

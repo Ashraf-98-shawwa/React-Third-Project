@@ -6,6 +6,7 @@ import Container from "../components/Container";
 import Footer from "../components/Footer";
 import CanvasCard from "../components/CanvasCard";
 import ScrollButton from "../components/ScrollButton";
+import { motion as m } from "framer-motion";
 
 const JobDetails = () => {
   const { id } = useParams();
@@ -25,14 +26,18 @@ const JobDetails = () => {
   }, [id]);
 
   return (
-    <div>
+    <m.div
+      initial={{ y: -250 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
+    >
       <Container>
         <Header />
         <CanvasCard detail={jobdetails} />
         <Footer />
         <ScrollButton />
       </Container>
-    </div>
+    </m.div>
   );
 };
 

@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ScrollButton from "../components/ScrollButton";
 import FilterContent from "../Sections/FilterContent";
+import { motion as m } from "framer-motion";
 
 export default function Filter() {
   const [filterredJobs, setFilteredJobs] = useState([]);
@@ -27,7 +28,11 @@ export default function Filter() {
   }, []);
 
   return (
-    <>
+    <m.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
+    >
       <Container>
         <Header />
         <FilterContent jobs={filterredJobs} />
@@ -35,6 +40,6 @@ export default function Filter() {
         <ScrollButton />
       </Container>
       ;
-    </>
+    </m.div>
   );
 }

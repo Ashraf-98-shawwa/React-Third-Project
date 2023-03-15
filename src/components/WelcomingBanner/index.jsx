@@ -35,8 +35,8 @@ export default function WelcomingBanner() {
   const dateOfMonth = today.getDate();
   const hours = today.getHours();
   const Message = hours >= 12 ? "Good Afternoon" : "Good Morning";
-    const name = localStorage.getItem("name");
-    const Name = name.charAt(0).toUpperCase() + name.slice(1);
+  const name = localStorage.getItem("name");
+  const Name = name.charAt(0).toUpperCase() + name.slice(1);
 
   function getOrdinalSuffix(date) {
     const suffixes = ["th", "st", "nd", "rd"];
@@ -56,7 +56,7 @@ export default function WelcomingBanner() {
           {Message},{Name}
         </Status>
       </div>
-      <img  src={status} alt="status" />
+      <img src={status} alt="status" />
     </WelcomingBannerBox>
   );
 }

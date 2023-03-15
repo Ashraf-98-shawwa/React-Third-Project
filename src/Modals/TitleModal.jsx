@@ -5,6 +5,7 @@ import Modal from "@mui/material/Modal";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import styled from "styled-components";
+import { motion as m } from "framer-motion";
 
 export const InputStyled = styled.input`
   width: 100%;
@@ -117,38 +118,44 @@ const TitleModal = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography
-            style={{ display: "flex", justifyContent: "space-between" }}
-            id="modal-modal-title"
-            variant="h6"
-            component="h2"
+          <m.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            Edit Your Title
-            <span onClick={handleClose} style={{ cursor: "pointer" }}>
-              X
-            </span>
-          </Typography>
-          <Typography sx={{ mt: 6, mb: 2, opacity: "90%" }}>
-            Your title
-          </Typography>
-          <Typography
-            sx={{ opacity: "75%", fontSize: "14px" }}
-            id="modal-modal-description"
-          >
-            Enter a single sentence description of your professional
-            skills/experience (e.g. Expert Web Designer with Ajax experience)
-          </Typography>
-          <form style={{ marginTop: "20px" }} onSubmit={handleUpdateTitle}>
-            <InputStyled
-              type="text"
-              value={newTitle}
-              onChange={handleChangeInput}
-            />
-            <ButtonStyledTwo type="button" onClick={handleClose}>
-              cancel
-            </ButtonStyledTwo>
-            <ButtonStyled type="submit">save</ButtonStyled>
-          </form>
+            <Typography
+              style={{ display: "flex", justifyContent: "space-between" }}
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+            >
+              Edit Your Title
+              <span onClick={handleClose} style={{ cursor: "pointer" }}>
+                X
+              </span>
+            </Typography>
+            <Typography sx={{ mt: 6, mb: 2, opacity: "90%" }}>
+              Your title
+            </Typography>
+            <Typography
+              sx={{ opacity: "75%", fontSize: "14px" }}
+              id="modal-modal-description"
+            >
+              Enter a single sentence description of your professional
+              skills/experience (e.g. Expert Web Designer with Ajax experience)
+            </Typography>
+            <form style={{ marginTop: "20px" }} onSubmit={handleUpdateTitle}>
+              <InputStyled
+                type="text"
+                value={newTitle}
+                onChange={handleChangeInput}
+              />
+              <ButtonStyledTwo type="button" onClick={handleClose}>
+                cancel
+              </ButtonStyledTwo>
+              <ButtonStyled type="submit">save</ButtonStyled>
+            </form>
+          </m.div>
         </Box>
       </Modal>
       {navigator ? <Navigate to={"/redirect"} /> : ""}

@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import SkillBox from "../components/SkillBox";
+import { motion as m } from "framer-motion";
 
 const style = {
   position: "absolute",
@@ -31,6 +32,11 @@ const SkillsModal = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+           <m.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
           <Typography
             style={{ display: "flex", justifyContent: "space-between" }}
             id="modal-modal-title"
@@ -50,7 +56,8 @@ const SkillsModal = (props) => {
           >
             Keeping your skills up to date helps you get the jobs you want.
           </Typography>
-          <SkillBox handleClose={handleClose} />
+            <SkillBox handleClose={handleClose} />
+            </m.div>
         </Box>
       </Modal>
     </div>
