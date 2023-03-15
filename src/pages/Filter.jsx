@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import SkillsCard from '../components/SkillsCard';
-import Container from '../components/Container';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Container from "../components/Container";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import ScrollButton from "../components/ScrollButton";
+import FilterContent from "../Sections/FilterContent";
 
 export default function Filter() {
-const [filterredJobs, setFilteredJobs] = useState([]);
+  const [filterredJobs, setFilteredJobs] = useState([]);
   useEffect(() => {
     (async () => {
       const q = localStorage.getItem("search");
 
       try {
         const res = await axios.get(
-            `http://localhost:3004/jobs?title_like=${q}`
+          `http://localhost:3004/jobs?title_like=${q}`
         );
 
         if (res) {
@@ -25,21 +26,13 @@ const [filterredJobs, setFilteredJobs] = useState([]);
     })();
   }, []);
 
-
-   
   return (
     <>
       <Container>
         <Header />
-        {filterredJobs?.map((item, index) => (
-          <div key={index}>
-            <h1>{item.title}</h1>
-            <h2>{item.hourlyRate}</h2>
-            <p>{item.description}</p>
-            <SkillsCard technologiesOfItem={item?.technologies} />
-          </div>
-        ))}
+        <FilterContent jobs={filterredJobs} />
         <Footer />
+        <ScrollButton />
       </Container>
       ;
     </>

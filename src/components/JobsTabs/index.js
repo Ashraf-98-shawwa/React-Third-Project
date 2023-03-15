@@ -2,7 +2,6 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import TabCard from "../TabCard";
 import { useJobContext } from "../../context/jobContext";
@@ -62,7 +61,7 @@ export default function JobsTabs() {
           <Tab label="Best Matches" {...a11yProps(0)} />
           <Tab label="Most Recent" {...a11yProps(1)} />
           <Tab
-            label={"Saved Jobs" + "(" + state.count + ")"}
+            label={"Saved Jobs (" + state.count + ")"}
             {...a11yProps(2)}
           />
         </Tabs>

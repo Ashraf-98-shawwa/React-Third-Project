@@ -42,7 +42,7 @@ export default function Input(props) {
           width="15px"
         >
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M7 8c-3.314 0-6 1.85-6 3.297v2.027c0 .373.358.676.8.676h10.4c.442 0 .8-.303.8-.676v-2.027C13 9.85 10.314 8 7 8zm3-5a3 3 0 11-6 0 3 3 0 016 0z"
           ></path>
         </SVG>
@@ -66,7 +66,7 @@ export default function Input(props) {
           width="15px"
         >
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M4.5 4.657C4.5 3.192 5.621 2 7 2s2.5 1.19 2.5 2.656V6h-5V4.657zM11.5 6V4.657C11.5 2.09 9.481 0 7 0S2.5 2.09 2.5 4.657V6h-.992C1.228 6 1 6.23 1 6.5v7c0 .276.229.5.5.5h11c.276 0 .5-.231.5-.5v-7a.5.5 0 00-.508-.5H11.5z"
           ></path>
         </SVG>
@@ -91,7 +91,7 @@ export default function Input(props) {
         >
           <path
             fill="grey"
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M7 8c-3.314 0-6 1.85-6 3.297v2.027c0 .373.358.676.8.676h10.4c.442 0 .8-.303.8-.676v-2.027C13 9.85 10.314 8 7 8zm3-5a3 3 0 11-6 0 3 3 0 016 0z"
           ></path>
         </SVG>

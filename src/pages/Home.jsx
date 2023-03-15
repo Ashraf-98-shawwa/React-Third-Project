@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Container from "../components/Container";
 import HomeContent from "../Sections/HomeContent";
 import Footer from "../components/Footer";
+import ScrollButton from "../components/ScrollButton";
 
 export default function Home() {
   return (
@@ -10,7 +11,8 @@ export default function Home() {
       <Container>
         <Header />
         <HomeContent />
-        <Footer/>
+        <ScrollButton/>
+        <Footer />
       </Container>
     </div>
   );

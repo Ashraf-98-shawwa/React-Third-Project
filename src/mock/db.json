@@ -209,9 +209,9 @@
   ],
   "personalInformation": [
     {
-      "title": "Full Stack Developer ",
-      "overview": "Hello !\n\nI'm a front-end web developer who will focus on delivering top-quality frontend interfaces, performance, and structures.\n\nSkills :\n- HTML5 / CSS3 / SASS\n- JavaScript / JQuery\n- Bootstrap\n- Convert design into responsive website\n- PSD to HTML/CSS\n\nI can guarantee:\n- Fast response and good communication skills\n- well organized/commented code\n- Testing and cross-browser compatibility\n- After-contract support\n\nI will gladly help you with your project , Let's start now!",
       "rate": "100",
+      "overview": "Hello !\n\nI'm a front-end web developer who will focus on delivering top-quality frontend interfaces, performance, and structures.\n\nSkills :\n- HTML5 / CSS3 / SASS\n- JavaScript / JQuery\n- Bootstrap\n- Convert design into responsive website\n- PSD to HTML/CSS\n\nI can guarantee:\n- Fast response and good communication skills\n- well organized/commented code\n- Testing and cross-browser compatibility\n- After-contract support\n\nI will gladly help you with your project , Let's start now!\n\nhi ",
+      "title": "Full Stack Developer ",
       "skills": [
         {
           "id": 2,
@@ -244,6 +244,50 @@
         {
           "id": 12,
           "title": "nuxt"
+        },
+        {
+          "id": 8,
+          "title": "UI"
+        },
+        {
+          "id": 14,
+          "title": "android"
+        },
+        {
+          "id": 16,
+          "title": "python"
+        },
+        {
+          "id": 17,
+          "title": "c++"
+        },
+        {
+          "id": 13,
+          "title": "scss"
+        },
+        {
+          "id": 19,
+          "title": "css"
+        },
+        {
+          "id": 5,
+          "title": "HDD"
+        },
+        {
+          "id": 1,
+          "title": "react"
+        },
+        {
+          "id": 9,
+          "title": "AI"
+        },
+        {
+          "id": 3,
+          "title": "vue"
+        },
+        {
+          "id": 18,
+          "title": "c#"
         }
       ],
       "image": "https://picsum.photos/200",

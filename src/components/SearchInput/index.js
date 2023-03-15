@@ -29,11 +29,11 @@ export default function SearchInput(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/filter");
     localStorage.setItem("search", search);
      const searched = [...searchValue, search];
-    setSearchValue((prevState) => [...prevState, search]);
-    localStorage.setItem("searchValues", JSON.stringify(searched));
+     setSearchValue((prevState) => [...prevState, search]);
+     localStorage.setItem("searchValues", JSON.stringify(searched));
+     navigate("/RedirectFilter");
   };
 
   return (

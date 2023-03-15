@@ -3,12 +3,14 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Menus from "../Menus";
 import axios from "axios";
+import { useAuthContext } from "../../context/AuthContext";
 
 // import pics
 import arrow from "../../Images/arrow.png";
 import notification from "../../Images/notification.png";
 import question from "../../Images/question.png";
 import SearchInput from "../SearchInput";
+import { Online, Profilediv } from "./style";
 
 const HeaderBox = styled.div`
   height: 64px;
@@ -27,6 +29,7 @@ const RightBox = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+  position: relative;
 `;
 const LeftMenu = styled.div``;
 
@@ -41,9 +44,32 @@ const SignUpP = styled.p`
 `;
 
 export default function Header(props) {
-    const[img,setImg] =useState("");
+  const { setToken, setisAuthorized } = useAuthContext();
+  const [img, setImg] = useState("");
+  const [showDiv, setShowDiv] = useState(false);
+  const [isOnline, setIsOnline] = useState(false);
+  const name = localStorage.getItem("name");
 
-  
+  const handleShow = () => {
+    setShowDiv(!showDiv);
+  };
+
+  const handleOnlineClick = () => {
+    setIsOnline(true);
+  };
+
+  const handleInvisibleClick = () => {
+    setIsOnline(false);
+  };
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("name");
+    setToken("");
+    setisAuthorized(false);
+
+  };
+
   useEffect(() => {
     (async () => {
       try {
@@ -51,8 +77,7 @@ export default function Header(props) {
           "http://localhost:3004/personalInformation"
         );
         if (res) {
-          setImg(res.data[0].image)
-
+          setImg(res.data[0].image);
         }
       } catch (error) {
         console.log(error);
@@ -201,7 +226,96 @@ export default function Header(props) {
             style={{ borderRadius: "50%", cursor: "pointer" }}
             src={img}
             alt=""
+            onClick={handleShow}
           />
+          {showDiv && (
+            <Profilediv>
+              <img
+                width="35px"
+                height="35px"
+                style={{ borderRadius: "50%", cursor: "pointer" }}
+                src={img}
+                alt=""
+              />
+
+              <h2>{name}</h2>
+              <div style={{ margin: "5px 0", border: "none" }}>Freelancer</div>
+              <div>
+                <Online isOnline={isOnline} onClick={handleOnlineClick}>
+                  Online
+                </Online>
+                <Online isOnline={!isOnline} onClick={handleInvisibleClick}>
+                  Invisible
+                </Online>
+              </div>
+              <ul style={{ listStyle: "none" }}>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    data-name="Layer 1"
+                    viewBox="0 0 24 24"
+                    style={{ verticalAlign: "middle", width: "20px" }}
+                    role="img"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="3.5"
+                      fill="none"
+                      vectorEffect="non-scaling-stroke"
+                      stroke="var(--icon-color, #001e00)"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                    ></circle>
+                    <path
+                      fill="none"
+                      vectorEffect="non-scaling-stroke"
+                      stroke="var(--icon-color, #001e00)"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M18.25 12.62v-1.24h0l2.36-2a9 9 0 00-2.18-3.67l-2.89 1.1h0a6.89 6.89 0 00-.88-.5h0l-.52-3a8.62 8.62 0 00-4.28 0l-.52 3h0a6.89 6.89 0 00-.88.5l-2.89-1.1a9 9 0 00-2.18 3.67l2.36 2a6.22 6.22 0 000 1.22l-2.36 2a9 9 0 002.18 3.67l2.89-1.1a6.89 6.89 0 00.88.5h0l.52 3a8.62 8.62 0 004.28 0l.52-3h0a6.89 6.89 0 00.88-.5h0l2.89 1.1a9 9 0 002.18-3.67l-2.36-2z"
+                    ></path>
+                  </svg>
+                  Settings
+                </li>
+                <li onClick={logout}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    role="img"
+                    data-test="logout"
+                    width="20px"
+                    height="20px"
+                  >
+                    <path
+                      vectorEffect="non-scaling-stroke"
+                      stroke="var(--icon-color, #001e00)"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeMiterlimit="10"
+                      strokeWidth="1.5"
+                      d="M5.8 5.8c0-1.7 1.3-3 3-3h8c1.7 0 3 1.3 3 3v12c0 1.7-1.3 3-3 3h-8c-1.7 0-3-1.3-3-3m8-6h-10"
+                    ></path>
+                    <path
+                      vectorEffect="non-scaling-stroke"
+                      stroke="var(--icon-color, #001e00)"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeMiterlimit="10"
+                      strokeWidth="1.5"
+                      d="M7.8 7.8l-4 4 4 4"
+                    ></path>
+                  </svg>
+                  LogOut
+                </li>
+              </ul>
+            </Profilediv>
+          )}
         </RightBox>
       </HeaderBox>
     );

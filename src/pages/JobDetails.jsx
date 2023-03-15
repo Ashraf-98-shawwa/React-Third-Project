@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Container from "../components/Container";
 import Footer from "../components/Footer";
 import CanvasCard from "../components/CanvasCard";
+import ScrollButton from "../components/ScrollButton";
 
 const JobDetails = () => {
   const { id } = useParams();
@@ -29,6 +30,7 @@ const JobDetails = () => {
         <Header />
         <CanvasCard detail={jobdetails} />
         <Footer />
+        <ScrollButton />
       </Container>
     </div>
   );

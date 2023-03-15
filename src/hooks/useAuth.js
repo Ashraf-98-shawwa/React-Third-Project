@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const useAuth = (url) => {
   const searchedValues = JSON.parse(localStorage.getItem("searchValues")) || [];
@@ -9,6 +9,14 @@ const useAuth = (url) => {
   const [Token, setToken] = useState("");
   const [username, setusername] = useState("");
   const [searchValue, setSearchValue] = useState(searchedValues);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setToken(token);
+      setisAuthorized(true);
+    }
+  }, [setToken, setisAuthorized]);
 
   const logout = () => {
     localStorage.removeItem("token");

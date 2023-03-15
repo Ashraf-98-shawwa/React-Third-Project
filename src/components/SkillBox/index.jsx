@@ -10,7 +10,7 @@ import { ButtonStyled, ButtonStyledTwo } from "../../Modals/TitleModal";
 export default function SkillBox(props) {
   const [skills, setSkills] = useState([]);
   const [choosenSkills, setChoosenSkills] = useState([]);
-  const [selectiveSkills, setSelectiveSkills] = useState([]);
+  const [selectiveSkills, setSelectiveSkills] = useState(skills);
   const [overview, setOverView] = useState("");
   const [title, setTitle] = useState("");
   const [rate, setRate] = useState("");
@@ -95,7 +95,11 @@ export default function SkillBox(props) {
           filterSelectedOptions
           renderTags={(value, getTagProps) =>
             value.map((option, index) => (
-              <Chip label={option.title} {...getTagProps({ index })} />
+              <Chip
+                style={{ background: "#219a10", color: "#fff" }}
+                label={option.title}
+                {...getTagProps({ index })}
+              />
             ))
           }
           renderInput={(params) => (
@@ -106,7 +110,7 @@ export default function SkillBox(props) {
         {navigator ? <Navigate to={"/redirect"} /> : ""}
       </Stack>
       <form
-        style={{ width: "fit-content", marginLeft: "auto",marginTop:"50px" }}
+        style={{ width: "fit-content", marginLeft: "auto", marginTop: "50px" }}
         onSubmit={handleUpdateSkills}
       >
         <ButtonStyledTwo type="button" onClick={props.handleClose}>

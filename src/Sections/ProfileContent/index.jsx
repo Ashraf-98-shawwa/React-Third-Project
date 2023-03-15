@@ -521,11 +521,13 @@ export default function ProfileContent() {
                   </CirculeIcon>
                 </SkillsModal>
               </Tittle>
-              {skills.map((item) => (
-                <SkillsBox style={{ marginLeft: "10px" }} key={item.id}>
-                  {item.title}
-                </SkillsBox>
-              ))}
+              <div style={{ display:"flex",flexWrap:"wrap",gap:"5px" }}>
+                {skills.map((item) => (
+                  <SkillsBox style={{ marginLeft: "10px" }} key={item.id}>
+                    {item.title}
+                  </SkillsBox>
+                ))}
+              </div>
             </HistoryBox>
             <Divider></Divider>
             <HistoryBox>
