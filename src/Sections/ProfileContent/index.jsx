@@ -166,7 +166,7 @@ export default function ProfileContent() {
     (async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3004/personalInformation"
+          `${process.env.REACT_APP_CRUD_API}/personalInformation`
         );
         if (res) {
           setTilte(res.data[0].title);

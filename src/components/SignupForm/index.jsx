@@ -67,7 +67,7 @@ export default function SignUpForm() {
       )
       .then(async () => {
         const res = await axios.post(
-          `https://react-tt-api.onrender.com/api/users/signup`,
+          `${process.env.REACT_APP_API_URL}/users/signup`,
           {
             name: Username,
             email,

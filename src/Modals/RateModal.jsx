@@ -84,7 +84,7 @@ const RateModal = (props) => {
     (async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3004/personalInformation"
+          `${process.env.REACT_APP_CRUD_API}/personalInformation`
         );
         if (res) {
           setNewRate(res.data[0].rate);
@@ -115,7 +115,7 @@ const RateModal = (props) => {
     (async () => {
       try {
         const res = await axios.put(
-          "http://localhost:3004/personalInformation/1",
+          `${process.env.REACT_APP_CRUD_API}/personalInformation/1`,
           {
             rate: newRate,
             overview: overView,

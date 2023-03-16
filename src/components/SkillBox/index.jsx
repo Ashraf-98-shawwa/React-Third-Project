@@ -20,7 +20,9 @@ export default function SkillBox(props) {
   useEffect(() => {
     (async () => {
       try {
-        var resOne = await axios.get("http://localhost:3004/skills");
+        var resOne = await axios.get(
+          `${process.env.REACT_APP_CRUD_API}/skills`
+        );
         if (resOne.data) {
           setSkills(resOne.data);
         }
@@ -30,7 +32,7 @@ export default function SkillBox(props) {
 
       try {
         const res = await axios.get(
-          "http://localhost:3004/personalInformation/1"
+          `${process.env.REACT_APP_CRUD_API}/personalInformation/1`
         );
         if (res.data) {
           setChoosenSkills(res.data.skills);
@@ -59,7 +61,7 @@ export default function SkillBox(props) {
     (async () => {
       try {
         const res = await axios.put(
-          "http://localhost:3004/personalInformation/1",
+          `${process.env.REACT_APP_CRUD_API}/personalInformation/1`,
           {
             rate: rate,
             overview: overview,
@@ -106,7 +108,6 @@ export default function SkillBox(props) {
             <TextField {...params} label="Skills" placeholder="Search Skills" />
           )}
         />
-
       </Stack>
       <form
         style={{ width: "fit-content", marginLeft: "auto", marginTop: "50px" }}

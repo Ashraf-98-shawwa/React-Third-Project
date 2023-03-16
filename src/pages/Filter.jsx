@@ -15,7 +15,7 @@ export default function Filter() {
 
       try {
         const res = await axios.get(
-          `http://localhost:3004/jobs?title_like=${q}`
+          `${process.env.REACT_APP_CRUD_API}/jobs?title_like=${q}`
         );
 
         if (res) {

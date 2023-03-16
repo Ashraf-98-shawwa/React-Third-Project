@@ -13,7 +13,7 @@ export default function SearchInput(props) {
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get(`http://localhost:3004/jobs`);
+        const res = await axios.get(`${process.env.REACT_APP_CRUD_API}/jobs`);
 
         if (res) {
           setAllJobs(res.data);

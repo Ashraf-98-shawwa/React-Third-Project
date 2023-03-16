@@ -76,7 +76,7 @@ export default function ProfileInfo() {
     (async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3004/personalInformation"
+          `${process.env.REACT_APP_CRUD_API}/personalInformation`
         );
         if (res) {
           setImg(res.data[0].image);

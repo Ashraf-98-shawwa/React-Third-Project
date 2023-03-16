@@ -47,7 +47,7 @@ export default function TabCard(props) {
     (async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3004/jobs?_sort=id&_order=desc_page=1&_limit=${count}`
+          `${process.env.REACT_APP_CRUD_API}/jobs?_sort=id&_order=desc_page=1&_limit=${count}`
         );
 
         if (res) {

@@ -15,7 +15,9 @@ const JobDetails = () => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get(`http://localhost:3004/jobs/${id}`);
+        const res = await axios.get(
+          `${process.env.REACT_APP_CRUD_API}/jobs/${id}`
+        );
         if (res) {
           setJobDetails(res.data);
         }
